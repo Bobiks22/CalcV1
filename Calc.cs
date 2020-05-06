@@ -29,5 +29,11 @@ namespace CalcV1
                 button.Text = i.ToString();
             }
         }
+
+        private void NumpadClick(object sender, EventArgs e)
+        {
+            Button button = (Button)sender;
+            tbDisplay.Text += button.Text;
+        }
     }
 }
