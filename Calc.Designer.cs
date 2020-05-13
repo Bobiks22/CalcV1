@@ -42,6 +42,10 @@
             this.bttDec = new System.Windows.Forms.Button();
             this.bttBackspace = new System.Windows.Forms.Button();
             this.btSign = new System.Windows.Forms.Button();
+            this.bttAdd = new System.Windows.Forms.Button();
+            this.bttSubstract = new System.Windows.Forms.Button();
+            this.bttMultiply = new System.Windows.Forms.Button();
+            this.bttDivide = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // tbDisplay
@@ -190,11 +194,63 @@
             this.btSign.UseVisualStyleBackColor = true;
             this.btSign.Click += new System.EventHandler(this.btSign_Click);
             // 
+            // bttAdd
+            // 
+            this.bttAdd.AccessibleRole = System.Windows.Forms.AccessibleRole.TitleBar;
+            this.bttAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(186)));
+            this.bttAdd.Location = new System.Drawing.Point(268, 191);
+            this.bttAdd.Name = "bttAdd";
+            this.bttAdd.Size = new System.Drawing.Size(40, 80);
+            this.bttAdd.TabIndex = 14;
+            this.bttAdd.Text = "+";
+            this.bttAdd.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.bttAdd.UseVisualStyleBackColor = true;
+            // 
+            // bttSubstract
+            // 
+            this.bttSubstract.AccessibleRole = System.Windows.Forms.AccessibleRole.TitleBar;
+            this.bttSubstract.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(186)));
+            this.bttSubstract.Location = new System.Drawing.Point(314, 191);
+            this.bttSubstract.Name = "bttSubstract";
+            this.bttSubstract.Size = new System.Drawing.Size(40, 80);
+            this.bttSubstract.TabIndex = 15;
+            this.bttSubstract.Text = "-";
+            this.bttSubstract.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.bttSubstract.UseVisualStyleBackColor = true;
+            // 
+            // bttMultiply
+            // 
+            this.bttMultiply.AccessibleRole = System.Windows.Forms.AccessibleRole.TitleBar;
+            this.bttMultiply.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(186)));
+            this.bttMultiply.Location = new System.Drawing.Point(268, 274);
+            this.bttMultiply.Name = "bttMultiply";
+            this.bttMultiply.Size = new System.Drawing.Size(40, 80);
+            this.bttMultiply.TabIndex = 16;
+            this.bttMultiply.Text = "x";
+            this.bttMultiply.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.bttMultiply.UseVisualStyleBackColor = true;
+            // 
+            // bttDivide
+            // 
+            this.bttDivide.AccessibleRole = System.Windows.Forms.AccessibleRole.TitleBar;
+            this.bttDivide.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(186)));
+            this.bttDivide.Location = new System.Drawing.Point(314, 274);
+            this.bttDivide.Name = "bttDivide";
+            this.bttDivide.Size = new System.Drawing.Size(40, 80);
+            this.bttDivide.TabIndex = 17;
+            this.bttDivide.Text = "/";
+            this.bttDivide.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.bttDivide.UseVisualStyleBackColor = true;
+            // 
             // Calc
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(376, 450);
+            this.Controls.Add(this.bttDivide);
+            this.Controls.Add(this.bttMultiply);
+            this.Controls.Add(this.bttSubstract);
+            this.Controls.Add(this.bttAdd);
             this.Controls.Add(this.btSign);
             this.Controls.Add(this.bttBackspace);
             this.Controls.Add(this.bttDec);
@@ -232,6 +288,10 @@
         private System.Windows.Forms.Button bttDec;
         private System.Windows.Forms.Button bttBackspace;
         private System.Windows.Forms.Button btSign;
+        private System.Windows.Forms.Button bttAdd;
+        private System.Windows.Forms.Button bttSubstract;
+        private System.Windows.Forms.Button bttMultiply;
+        private System.Windows.Forms.Button bttDivide;
     }
 }
 
