@@ -13,6 +13,10 @@ namespace CalcV1
     public partial class Calc : Form
     {
         char decimalSeperator;
+        double numOne = 0;
+        double numTwo = 0;
+        string operation;
+
         public Calc()
         {
             InitializeComponent();
@@ -53,8 +57,6 @@ namespace CalcV1
             {
                     tbDisplay.Text += decimalSeperator;
             }
-
-           
         }
 
         private void bttBackspace_Click(object sender, EventArgs e)
@@ -98,9 +100,48 @@ namespace CalcV1
             {
 
             }
-            
+        }
+
+        private void bttResult_Click(object sender, EventArgs e)
+        {
+            if (operation == string.Empty)
+            {
+                MessageBox.Show("ERROR 47, no opereation is used");
+                return;
+            }
+            double result = 0;
+            int usedLenght = (numOne.ToString().Length) + 1;
+            string s = tbDisplay.Text;
+            numTwo = Convert.ToDouble(s.Substring(usedLenght, s.Length - usedLenght));
+
+            if (operation == "+")
+            {
+                result = numOne + numTwo;
+            } 
+            else if (operation == "-")
+            {
+                result = numOne - numTwo;
+            }
+            else if (operation == "x")
+            {
+                result = numOne * numTwo;
+            }
+            else if (operation == "/")
+            {
+                result = numOne / numTwo;
+            }
+
+            operation = string.Empty;
+            tbDisplay.Text = result.ToString();
 
 
+        }
+
+       private void Operation_Click(object sender, EventArgs e)
+        {
+            numOne = Convert.ToDouble(tbDisplay.Text);
+            operation = ((Button)sender).Text;
+            tbDisplay.Text = numOne.ToString() + operation;
 
         }
     }

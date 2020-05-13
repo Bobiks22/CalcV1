@@ -46,6 +46,7 @@
             this.bttSubstract = new System.Windows.Forms.Button();
             this.bttMultiply = new System.Windows.Forms.Button();
             this.bttDivide = new System.Windows.Forms.Button();
+            this.bttResult = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // tbDisplay
@@ -205,6 +206,7 @@
             this.bttAdd.Text = "+";
             this.bttAdd.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.bttAdd.UseVisualStyleBackColor = true;
+            this.bttAdd.Click += new System.EventHandler(this.Operation_Click);
             // 
             // bttSubstract
             // 
@@ -217,6 +219,7 @@
             this.bttSubstract.Text = "-";
             this.bttSubstract.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.bttSubstract.UseVisualStyleBackColor = true;
+            this.bttSubstract.Click += new System.EventHandler(this.Operation_Click);
             // 
             // bttMultiply
             // 
@@ -229,6 +232,7 @@
             this.bttMultiply.Text = "x";
             this.bttMultiply.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.bttMultiply.UseVisualStyleBackColor = true;
+            this.bttMultiply.Click += new System.EventHandler(this.Operation_Click);
             // 
             // bttDivide
             // 
@@ -241,12 +245,27 @@
             this.bttDivide.Text = "/";
             this.bttDivide.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.bttDivide.UseVisualStyleBackColor = true;
+            this.bttDivide.Click += new System.EventHandler(this.Operation_Click);
+            // 
+            // bttResult
+            // 
+            this.bttResult.AccessibleRole = System.Windows.Forms.AccessibleRole.TitleBar;
+            this.bttResult.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(186)));
+            this.bttResult.Location = new System.Drawing.Point(10, 409);
+            this.bttResult.Name = "bttResult";
+            this.bttResult.Size = new System.Drawing.Size(338, 52);
+            this.bttResult.TabIndex = 18;
+            this.bttResult.Text = "=";
+            this.bttResult.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.bttResult.UseVisualStyleBackColor = true;
+            this.bttResult.Click += new System.EventHandler(this.bttResult_Click);
             // 
             // Calc
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(376, 450);
+            this.ClientSize = new System.Drawing.Size(376, 473);
+            this.Controls.Add(this.bttResult);
             this.Controls.Add(this.bttDivide);
             this.Controls.Add(this.bttMultiply);
             this.Controls.Add(this.bttSubstract);
@@ -292,6 +311,7 @@
         private System.Windows.Forms.Button bttSubstract;
         private System.Windows.Forms.Button bttMultiply;
         private System.Windows.Forms.Button bttDivide;
+        private System.Windows.Forms.Button bttResult;
     }
 }
 
