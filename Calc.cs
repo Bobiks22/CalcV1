@@ -16,6 +16,7 @@ namespace CalcV1
         double numOne = 0;
         double numTwo = 0;
         string operation;
+        int usedLenght;
 
         public Calc()
         {
@@ -109,7 +110,7 @@ namespace CalcV1
                 MessageBox.Show("ERROR 47, no opereation is used");
                 return;
             }
-            int usedLenght = (numOne.ToString().Length) + 1;
+
             string s = tbDisplay.Text;
 
             if (usedLenght == s.Length)
@@ -119,7 +120,7 @@ namespace CalcV1
             }
 
             numTwo = Convert.ToDouble(s.Substring(usedLenght, s.Length - usedLenght));
-             double result = 0;
+            double result = 0;
 
             if (operation == "+")
             {
@@ -150,7 +151,8 @@ namespace CalcV1
             {
                 numOne = Convert.ToDouble(tbDisplay.Text);
                 operation = ((Button)sender).Text;
-                tbDisplay.Text = numOne.ToString() + operation;
+                tbDisplay.Text += operation;
+                usedLenght = tbDisplay.Text.Length;
             }
             catch
             {
