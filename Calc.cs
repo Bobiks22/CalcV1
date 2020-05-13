@@ -109,10 +109,17 @@ namespace CalcV1
                 MessageBox.Show("ERROR 47, no opereation is used");
                 return;
             }
-            double result = 0;
             int usedLenght = (numOne.ToString().Length) + 1;
             string s = tbDisplay.Text;
+
+            if (usedLenght == s.Length)
+            {
+                tbDisplay.Text = tbDisplay.Text.Substring(0, tbDisplay.Text.Length - 1);
+                return;
+            }
+
             numTwo = Convert.ToDouble(s.Substring(usedLenght, s.Length - usedLenght));
+            double result = 0;
 
             if (operation == "+")
             {
@@ -139,10 +146,16 @@ namespace CalcV1
 
        private void Operation_Click(object sender, EventArgs e)
         {
-            numOne = Convert.ToDouble(tbDisplay.Text);
-            operation = ((Button)sender).Text;
-            tbDisplay.Text = numOne.ToString() + operation;
+            try
+            {
+                numOne = Convert.ToDouble(tbDisplay.Text);
+                operation = ((Button)sender).Text;
+                tbDisplay.Text = numOne.ToString() + operation;
+            }
+            catch
+            {
 
+            }
         }
     }
 }
