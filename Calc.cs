@@ -119,7 +119,7 @@ namespace CalcV1
             }
 
             numTwo = Convert.ToDouble(s.Substring(usedLenght, s.Length - usedLenght));
-            double result = 0;
+             double result = 0;
 
             if (operation == "+")
             {
