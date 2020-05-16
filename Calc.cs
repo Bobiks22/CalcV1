@@ -159,6 +159,13 @@ namespace CalcV1
             }
             else if (operation == "/")
             {
+                if (numTwo == 0)
+                {
+                    MessageBox.Show("You can't divide by zero!");
+                    tbDisplay.Text = tbDisplay.Text.Substring(0, tbDisplay.Text.Length - 1);
+                    numTwo = 0;
+                    return;
+                }
                 result = numOne / numTwo;
             }
             else if (operation == "^")
