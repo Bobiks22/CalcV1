@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Windows.Forms;
+using System.Windows.Forms.VisualStyles;
 
 namespace CalcV1
 {
@@ -17,6 +18,11 @@ namespace CalcV1
         double numTwo = 0;
         string operation;
         int usedLenght;
+        bool isResult = false;
+
+        bool scientificMode = false;
+        const int widthSmall = 390;
+        const int widthLarge = 600;
 
         public Calc()
         {
@@ -26,8 +32,14 @@ namespace CalcV1
 
         public void InitCalc()
         {
+            this.FormBorderStyle = FormBorderStyle.FixedDialog;
+            this.MaximizeBox = false;
+
             decimalSeperator = Convert.ToChar(Thread.CurrentThread.CurrentCulture.NumberFormat.NumberDecimalSeparator);
+
             tbDisplay.Text = "0";
+            this.Width = widthSmall;
+
             string buttonName = null;
             Button button = null; 
             for (int i = 0; i <= 9; i++)
@@ -41,9 +53,10 @@ namespace CalcV1
         private void NumpadClick(object sender, EventArgs e)
         {
             Button button = (Button)sender;
-            if (tbDisplay.Text == "0")
+            if (tbDisplay.Text == "0" || isResult)
             {
                 tbDisplay.Text = button.Text;
+                isResult = false;
             }
             else
             {
@@ -56,8 +69,15 @@ namespace CalcV1
         {
             if (!tbDisplay.Text.Contains(decimalSeperator))
             {
-                    tbDisplay.Text += decimalSeperator;
+                if (!tbDisplay.Text.Substring(tbDisplay.Text.Length - 1).All(Char.IsDigit))
+                {
+                    tbDisplay.Text += ("0" + decimalSeperator);
+                    return;
+                }
+
+                tbDisplay.Text += decimalSeperator;
             }
+
         }
 
         private void bttBackspace_Click(object sender, EventArgs e)
@@ -138,10 +158,14 @@ namespace CalcV1
             {
                 result = numOne / numTwo;
             }
+            else if (operation == "^")
+            {
+                result = Math.Pow(numOne, numTwo);
+            }
 
             operation = string.Empty;
             tbDisplay.Text = result.ToString();
-
+            isResult = true;
 
         }
 
@@ -151,6 +175,12 @@ namespace CalcV1
             {
                 numOne = Convert.ToDouble(tbDisplay.Text);
                 operation = ((Button)sender).Text;
+
+                if (operation == "Sqrt")
+                {
+                    tbDisplay.Text = Math.Sqrt(numOne).ToString();
+                    return;
+                }
                 tbDisplay.Text += operation;
                 usedLenght = tbDisplay.Text.Length;
             }
@@ -158,6 +188,20 @@ namespace CalcV1
             {
 
             }
+        }
+
+        private void tbDisplay_Click(object sender, EventArgs e)
+        {
+            if (scientificMode)
+            {
+                this.Width = widthSmall;
+            }
+            else
+            {
+                this.Width = widthLarge;
+            }
+            scientificMode = !scientificMode;
+
         }
     }
 }
