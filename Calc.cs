@@ -136,6 +136,9 @@ namespace CalcV1
             if (usedLenght == s.Length)
             {
                 tbDisplay.Text = tbDisplay.Text.Substring(0, tbDisplay.Text.Length - 1);
+                operation = String.Empty;
+                numOne = 0;
+                usedLenght = 0;
                 return;
             }
 
